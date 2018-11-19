@@ -11,9 +11,8 @@ var update = function(){
   var target = new Date();
   var diff = target.getTime() - now.getTime();
   var counter = separate_time(diff);
-var counter = separate_time(now);
 document.getElementById('countdown').textContent = 
-  'オリンピックまであと　' +
+  '東京オリンピックまであと　' +
   counter[3] + '日' +
   counter[2] + '時間' +
   counter[1] + '分' +
@@ -21,4 +20,7 @@ document.getElementById('countdown').textContent =
   refresh();//タイマーを起動
 }
 
- 
+ var refresh= function(){
+   setTimeout(update, 1000);//1000ミリ秒待ってからupdateを実行
+ }
+ update();//最初の更新
