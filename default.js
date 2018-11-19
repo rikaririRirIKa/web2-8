@@ -1,3 +1,10 @@
+var thmubs = document.QueryselectorAll('.thumb');
+for(idx in thmubs){
+  thmubs[idx].onclick = function(){
+    document.getElementById('bigimg').src = 'img/' + this.dataset.image + '.jpg';
+  }
+}
+
 function setCookie(c_name,value,expiredays){
   //有効期限の日付
   var extime = new Date().getTime;
@@ -47,6 +54,11 @@ function getCookie(c_name){
   //新しい値の保存
   var current_time = new Date();
   setCookie('lastDate', current_time.toString(),7);
+  
+  //クッキーの削除
+  document.getElementById('remove_cookie').onsubmit = function(){
+    setCookie('lastDate',"",0);
+  }
   
 {function getFileName(){
   //ホスト以下のパスを取得し、それをsplit('/')で「/」区切りで配列に入れ、pop()で配列の最後の値を取得
